@@ -87,6 +87,30 @@ body{
     display: var(--show, none);
 }
 
+.vertical_nav{
+    position: absolute;
+    display: none;
+    list-style-type: none;
+    width: 200px;
+    background-color: rgba(0, 0, 0, .5);
+    padding-left: 0;
+}
+
+.nav_link li:hover .vertical_nav{
+    display: block;
+}
+
+.vertical_nav li:hover{
+    background-color: black;
+}
+
+.nav_link--v{
+    display: block;
+    color: white;
+    padding: 15px 15px 15px 20px;
+    text-decoration: none;
+}
+
 .hero_container{
     max-width: 800px;
     display: grid;
