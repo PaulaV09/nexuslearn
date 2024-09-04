@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    // Si la sesión está activa, redirigir a SessionAbierta.php
+    if (isset($_SESSION['email'])) {
+        header("Location: SesionAbierta.php");
+        exit(); // Detener la ejecución del script después de la redirección
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +28,13 @@
             </div>
             <ul class="nav_link nav_link--menu">
                 <li class="nav_items">
-                    <a href="../nexuslearn/index.html" class="nav_links">Inicio</a>
+                    <a href="../nexuslearn/index.php" class="nav_links">Inicio</a>
                 </li>
                 <li class="nav_items">
-                    <a href="../nexuslearn/login.html" class="nav_links">Iniciar Sesión</a>
+                    <a href="../nexuslearn/login.php" class="nav_links">Iniciar Sesión</a>
                 </li>
                 <li class="nav_items">
-                    <a href="../nexuslearn/signin.html" class="nav_links">Registrarse</a>
+                    <a href="../nexuslearn/signin.php" class="nav_links">Registrarse</a>
                 </li>
 
                 <img src="./images/close.svg" alt="Cerrar" class="nav_close">
@@ -76,13 +86,13 @@
                 <h2 class="footer_title">NexusLearn</h2>
                 <ul class="nav_link nav_link--footer">
                     <li class="nav_items">
-                        <a href="../nexuslearn/index.html" class="nav_links">Inicio</a>
+                        <a href="../nexuslearn/index.php" class="nav_links">Inicio</a>
                     </li>
                     <li class="nav_items">
-                        <a href="../nexuslearn/login.html" class="nav_links">Iniciar Sesión</a>
+                        <a href="../nexuslearn/login.php" class="nav_links">Iniciar Sesión</a>
                     </li>
                     <li class="nav_items">
-                        <a href="../nexuslearn/signin.html" class="nav_links">Registrarse</a>
+                        <a href="../nexuslearn/signin.php" class="nav_links">Registrarse</a>
                     </li>
                 </ul>
             </nav>
@@ -100,19 +110,5 @@
     </footer>
 
     <script src="./js/menu.js"></script>
-
-    <script type="text/javascript">
-        (function(d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            v.onload = function() {
-              window.voiceflow.chat.load({
-                verify: { projectID: '66c54c8b3ec8d19bd5bcb054' },
-                url: 'https://general-runtime.voiceflow.com',
-                versionID: 'production'
-              });
-            }
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-      </script>
 </body>
 </html>

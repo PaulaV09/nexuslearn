@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+// Verificar si la sesión está iniciada
+if (!isset($_SESSION['email'])) {
+    echo '
+        <script>
+            alert("Debes iniciar sesión");
+            window.location = "index.html";
+        </script>
+    ';
+    session_destroy();
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +34,13 @@
             </div>
             <ul class="nav_link nav_link--menu">
                 <li class="nav_items">
-                    <a href="../nexuslearn/SesionAbierta.html" class="nav_links">Inicio</a>
+                    <a href="../nexuslearn/SesionAbierta.php" class="nav_links">Inicio</a>
                 </li>
                 <li class="nav_items">
-                    <a href="../nexuslearn/foro.html" class="nav_links">Foro</a>
+                    <a href="../nexuslearn/foro.php" class="nav_links">Foro</a>
                 </li>
                 <li class="nav_items">
-                    <a href="../nexuslearn/repositorio.html" class="nav_links">Repositorio</a>
+                    <a href="../nexuslearn/repositorio.php" class="nav_links">Repositorio</a>
                     <ul class="vertical_nav">
                         <li class="nav_items"><a href="#" class="nav_link--v">Matematicas</a></li>
                         <li class="nav_items"><a href="#" class="nav_link--v">Fisica</a></li>
@@ -33,10 +49,10 @@
                     </ul>
                 </li>
                 <li class="nav_items">
-                    <a href="../nexuslearn/reuniones.html" class="nav_links">Reuniones</a>
+                    <a href="../nexuslearn/reuniones.php" class="nav_links">Reuniones</a>
                 </li>
                 <li class="nav_items">
-                    <a href="../nexuslearn/index.html" class="nav_links">Cerrar Sesión</a>
+                    <a href="php/cerrar_sesion.php" class="nav_links">Cerrar Sesión</a>
                 </li>
 
                 <img src="./images/close.svg" alt="Cerrar" class="nav_close">
@@ -60,16 +76,16 @@
                 <h2 class="footer_title">NexusLearn</h2>
                 <ul class="nav_link nav_link--footer">
                     <li class="nav_items">
-                        <a href="../nexuslearn/SesionAbierta.html" class="nav_links">Inicio</a>
+                        <a href="../nexuslearn/SesionAbierta.php" class="nav_links">Inicio</a>
                     </li>
                     <li class="nav_items">
-                        <a href="../nexuslearn/foro.html" class="nav_links">Foro</a>
+                        <a href="../nexuslearn/foro.php" class="nav_links">Foro</a>
                     </li>
                     <li class="nav_items">
-                        <a href="../nexuslearn/repositorio.html" class="nav_links">Repositorio</a>
+                        <a href="../nexuslearn/repositorio.php" class="nav_links">Repositorio</a>
                     </li>
                     <li class="nav_items">
-                        <a href="../nexuslearn/reuniones.html" class="nav_links">Reuniones</a>
+                        <a href="../nexuslearn/reuniones.php" class="nav_links">Reuniones</a>
                     </li>
                 </ul>
             </nav>

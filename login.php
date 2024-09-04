@@ -1,3 +1,13 @@
+<?php
+
+    session_start();
+
+    if(isset($_SESSION['email'])){
+        header("location: SesionAbierta.php");
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,19 +22,19 @@
 <body>
     <div class="form">
         <h1 class="title">Inicio de Sesión</h1>
-        <form action="#" method="post">
+        <form action="php/login_usuario_be.php" method="post">
             <div class="username">
-                <input type="text" required>
-                <label>Nombre de usuario:</label>
+                <input type="text" name="email" required>
+                <label>Correo:</label>
             </div>
             <div class="password">
-                <input type="password" required>
+                <input type="password" name="contrasena" required>
                 <label>Contraseña:</label>
             </div>
             <div class="remember">¿Olvido su contraseña?</div>
             <input type="submit" value="Iniciar">
             <div class="signin">
-                Quiero hacer el <a href="../nexuslearn/signin.html">registro</a>
+                Quiero hacer el <a href="../nexuslearn/signin.php">registro</a>
             </div>
         </form>
     </div>
