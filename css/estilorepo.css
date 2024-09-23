@@ -1,0 +1,50 @@
+header{
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+#dropzone {
+    padding: 40px;
+    background: white;
+    border: 2px dashed #333;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+#dropzone p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+#dropzone label {
+    display: inline-block;
+    border-bottom: 1px solid blue;
+    color: blue;
+    cursor: pointer;
+    margin-top: 10px; /* Separación entre el texto y el botón */
+}
+
+#dropzone input{
+    display: none;
+}
+
+#dropzone.hover {
+    border: 2px solid green; /* Cambia el borde cuando se arrastra el archivo */
+    background-color: #f0f0f0;
+}
+
+#lista_archivos{
+    list-style: none;
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#lista_archivos img{
+    height: 100px;
+}
