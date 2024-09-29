@@ -1,8 +1,6 @@
-header{
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
+main{
+    margin: 30px;
+    z-index: -1;
 }
 
 #dropzone {

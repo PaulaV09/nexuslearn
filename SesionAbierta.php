@@ -42,10 +42,10 @@ if (!isset($_SESSION['email'])) {
                 <li class="nav_items">
                     <a href="../nexuslearn/repositorio.php" class="nav_links">Repositorio</a>
                     <ul class="vertical_nav">
-                        <li class="nav_items"><a href="#" class="nav_link--v">Matematicas</a></li>
-                        <li class="nav_items"><a href="#" class="nav_link--v">Fisica</a></li>
-                        <li class="nav_items"><a href="#" class="nav_link--v">Quimica</a></li>
-                        <li class="nav_items"><a href="#" class="nav_link--v">Programación</a></li>
+                        <li class="nav_items"><a href="../nexuslearn/r_mate.php" class="nav_link--v">Matematicas</a></li>
+                        <li class="nav_items"><a href="../nexuslearn/r_fisica.php" class="nav_link--v">Fisica</a></li>
+                        <li class="nav_items"><a href="../nexuslearn/r_quimica.php" class="nav_link--v">Quimica</a></li>
+                        <li class="nav_items"><a href="../nexuslearn/r_program.php" class="nav_link--v">Programación</a></li>
                     </ul>
                 </li>
                 <li class="nav_items">

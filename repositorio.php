@@ -42,10 +42,10 @@ if (!isset($_SESSION['email'])) {
                 <li class="nav_items">
                     <a href="../nexuslearn/repositorio.php" class="nav_links">Repositorio</a>
                     <ul class="vertical_nav">
-                        <li class="nav_items"><a href="#" class="nav_link--v">Matematicas</a></li>
-                        <li class="nav_items"><a href="#" class="nav_link--v">Fisica</a></li>
-                        <li class="nav_items"><a href="#" class="nav_link--v">Quimica</a></li>
-                        <li class="nav_items"><a href="#" class="nav_link--v">Programación</a></li>
+                        <li class="nav_items"><a href="../nexuslearn/r_mate.php" class="nav_link--v">Matematicas</a></li>
+                        <li class="nav_items"><a href="../nexuslearn/r_fisica.php" class="nav_link--v">Fisica</a></li>
+                        <li class="nav_items"><a href="../nexuslearn/r_quimica.php" class="nav_link--v">Quimica</a></li>
+                        <li class="nav_items"><a href="../nexuslearn/r_program.php" class="nav_link--v">Programación</a></li>
                     </ul>
                 </li>
                 <li class="nav_items">
@@ -79,7 +79,7 @@ if (!isset($_SESSION['email'])) {
                             </h3>
     
                             <p class="questions__show">Límites y continuidad, Derivadas y sus aplicaciones, Teoremas importantes, Integrales indefinidas y definidas, Métodos de integración, Aplicaciones de la integral, Funciones de varias variables, Integrales múltiples, Vectores y matrices, Sistemas de ecuaciones lineales y métodos de resolución, Determinantes, Espacios vectoriales y subespacios, Medidas de tendencia central, Medidas de dispersión, Conceptos básicos de probabilidad, Pruebas de hipótesis, Regresión lineal y correlación, entre otros. <br>
-                            <a href="#" class="cta" id="button">Ir a Repositorio</a>
+                            <a href="../nexuslearn/r_mate.php" class="cta" id="button">Ir a Repositorio</a>
                             </p>
                         </div>
                     </article>
@@ -93,7 +93,7 @@ if (!isset($_SESSION['email'])) {
                             </h3>
     
                             <p class="questions__show">Cinemática, Dinámica, Estática y dinámica de cuerpos rígidos, Mecánica de fluidos, Electrostática, Corriente eléctrica y circuitos, Magnetismo, Electromagnetismo, Sistemas termodinámicos y variables, Primera ley de la termodinámica, Segunda ley de la termodinámica, Propiedades de los gases, entre otros. <br>
-                            <a href="#" class="cta" id="button">Ir a Repositorio</a>
+                            <a href="../nexuslearn/r_fisica.php" class="cta" id="button">Ir a Repositorio</a>
                             </p>
                         </div>
                     </article>
@@ -107,7 +107,7 @@ if (!isset($_SESSION['email'])) {
                             </h3>
     
                             <p class="questions__show">Átomos y moléculas, Enlaces químicos, Tipos de reacciones químicas, Balanceo de ecuaciones químicas, Estequiometría, Sólidos, líquidos y gases, Teoría cinética de los gases, Primera ley de la termodinámica, Segunda ley de la termodinámica, Equilibrio químico, Propiedades de las soluciones, Ácidos y bases, Velocidad de reacción, Mecanismos de reacción, Introducción a la química del carbono, entre otros. <br>
-                            <a href="#" class="cta" id="button">Ir a Repositorio</a>
+                            <a href="../nexuslearn/r_quimica.php" class="cta" id="button">Ir a Repositorio</a>
                             </p>
                         </div>
                     </article>
@@ -121,7 +121,7 @@ if (!isset($_SESSION['email'])) {
                             </h3>
     
                             <p class="questions__show">Introducción a la programación, Variables y tipos de datos, Entrada y salida de datos, Algoritmos y pseudocódigo, Control de flujo, Funciones o procedimientos, Arreglos o vectores, Listas, pilas y colas, Cadenas de caracteres (strings), Conceptos básicos de POO, Creación de clases y objetos, Modularidad y reutilización de código, Tipos de errores, Manejo de excepciones, Conceptos básicos de bases de datos, Introducción a SQL, entre otros. <br>
-                            <a href="#" class="cta" id="button">Ir a Repositorio</a>
+                            <a href="../nexuslearn/r_program.php" class="cta" id="button">Ir a Repositorio</a>
                             </p>
                         </div>
                     </article>

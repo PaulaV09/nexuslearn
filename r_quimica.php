@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+// Verificar si la sesión está iniciada
+if (!isset($_SESSION['email'])) {
+    echo '
+        <script>
+            alert("Debes iniciar sesión");
+            window.location = "index.html";
+        </script>
+    ';
+    session_destroy();
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +42,10 @@
                 <li class="nav_items">
                     <a href="../nexuslearn/repositorio.php" class="nav_links">Repositorio</a>
                     <ul class="vertical_nav">
-                        <li class="nav_items"><a href="#" class="nav_link--v">Matematicas</a></li>
-                        <li class="nav_items"><a href="#" class="nav_link--v">Fisica</a></li>
-                        <li class="nav_items"><a href="#" class="nav_link--v">Quimica</a></li>
-                        <li class="nav_items"><a href="#" class="nav_link--v">Programación</a></li>
+                        <li class="nav_items"><a href="../nexuslearn/r_mate.php" class="nav_link--v">Matematicas</a></li>
+                        <li class="nav_items"><a href="../nexuslearn/r_fisica.php" class="nav_link--v">Fisica</a></li>
+                        <li class="nav_items"><a href="../nexuslearn/r_quimica.php" class="nav_link--v">Quimica</a></li>
+                        <li class="nav_items"><a href="../nexuslearn/r_program.php" class="nav_link--v">Programación</a></li>
                     </ul>
                 </li>
                 <li class="nav_items">
@@ -66,6 +81,37 @@
         ?>
         </ul>
     </main>
+    <footer class="footer">
+        <section class="footer_container container">
+            <nav class="nav nav--footer">
+                <h2 class="footer_title">NexusLearn</h2>
+                <ul class="nav_link nav_link--footer">
+                    <li class="nav_items">
+                        <a href="../nexuslearn/SesionAbierta.php" class="nav_links">Inicio</a>
+                    </li>
+                    <li class="nav_items">
+                        <a href="../nexuslearn/foro.php" class="nav_links">Foro</a>
+                    </li>
+                    <li class="nav_items">
+                        <a href="../nexuslearn/repositorio.php" class="nav_links">Repositorio</a>
+                    </li>
+                    <li class="nav_items">
+                        <a href="../nexuslearn/reuniones.php" class="nav_links">Reuniones</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+        <section class="footer_copy container">
+            <div class="footer_social">
+                <a href="#" class="footer_icons">
+                    <img src="./images/face.svg" alt="Facebook" class="footer_img">
+                    <img src="./images/ig.svg" alt="Instagram" class="footer_img">
+                    <img src="./images/page.svg" alt="Pagina web UNAB" class="footer_img">
+                </a>
+            </div>
+            <h3 class="footer_copyright">Derechos reservados &copy;</h3>
+        </section>
+    </footer>
 
     <script src="js/repo_quimica.js"></script>
 </body>
