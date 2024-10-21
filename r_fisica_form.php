@@ -13,11 +13,10 @@ if (!isset($_SESSION['email'])) {
     die();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusLearn</title>
@@ -25,6 +24,7 @@ if (!isset($_SESSION['email'])) {
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="./css/estilorepo.css">
 </head>
 <body>
     <header class="header">
@@ -63,14 +63,68 @@ if (!isset($_SESSION['email'])) {
             </div>
         </nav>
     </header>
-
     <main>
-        <section class="container">
-            <h2 class="subtitle">Repositorio Química</h2>
-        </section>
-        <a href="../nexuslearn/r_quimica_form.php">Ir a form</a>
+        <div class="container-form">
+            <div class="info-form">
+                <h2>Comparte tus recursos académicos de física</h2>
+                <p> Sube tus archivos para compartir con la comunidad estudiantil y contribuir al aprendizaje colaborativo. Asegúrate de que los materiales que compartes sean útiles y estén relacionados con nuestros temas de estudio. <b>¡Tu contribución puede marcar la diferencia para otros!</b> </p>
+            </div>
+            <div class="content-form">
+                <div class="input-box">
+                    <label for="title">Titulo</label>
+                    <input type="text" name="Titulo" placeholder="Ingresa el titulo del recurso" required>
+                </div>
+                <div class="input-box">
+                    <label for="theme">Tema</label>
+                    <input type="text" name="Tema" placeholder="Ingresa el tema del recurso" required>
+                </div>
+                <div class="input-box">
+                    <label for="author">Autor</label>
+                    <input type="text" name="Autor" placeholder="Ingresa el autor del recurso" required>
+                </div>
+                <div class="input-box">
+                    <label for="opciones"> Elige el tipo de recurso: </label>
+                    <select name="opciones" id="opciones">
+                        <option value="opcion1">Seleccione una opción</option>
+                        <option value="opcion2">Libro</option>
+                        <option value="opcion3">Documento</option>
+                        <option value="opcion4">Video</option>
+                        <option value="opcion5">Diapositivas</option>
+                        <option value="opcion6">Link</option>
+                        <option value="opcion7">Proyecto</option>
+                        <option value="opcion8">Notas personales</option>
+                        <option value="opcion9">Articulo</option>
+                        <option value="opcion10">Otro</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <label for="description">Descripción</label>
+                    <textarea name="descripcion" class="campo" placeholder="Ingresa una descripción del recurso"></textarea>
+                </div>
+                <div id="dropzone">
+                    <p>Arrastra los archivos a esta zona <br> 
+                        <label for="archivos">o haga click aquí</label>
+                    </p>
+                    <input type="file" id="archivos" name="archivos" multiple>
+                </div>
+                <ul id="lista_archivos">
+                <?php
+                    $contenido = glob("uploads_quimica/*");
+                    foreach ($contenido as $archivo) {
+                        $nombreArchivo = basename($archivo);
+                        echo "<li><a href='$archivo' download>$nombreArchivo</a></li>";
+                    }
+                ?>
+                </ul>
+                <div class="button-container button-subir">
+                    <button type="submit">Subir recurso</button>
+                </div>
+                <div class="button-container button-cancelar">
+                    <button type="submit">Cancelar</button>
+                </div>
+            </div>
+        </div>
     </main>
-
     <footer class="footer">
         <section class="footer_container container">
             <nav class="nav nav--footer">
@@ -103,20 +157,6 @@ if (!isset($_SESSION['email'])) {
         </section>
     </footer>
 
-    <script src="./js/menu.js"></script>
-    
-    <script type="text/javascript">
-        (function(d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            v.onload = function() {
-              window.voiceflow.chat.load({
-                verify: { projectID: '66c54c8b3ec8d19bd5bcb054' },
-                url: 'https://general-runtime.voiceflow.com',
-                versionID: 'production'
-              });
-            }
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-      </script>
+    <script src="js/repo_quimica.js"></script>
 </body>
 </html>
