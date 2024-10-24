@@ -1,4 +1,7 @@
 <?php
+
+include '../nexuslearn/php/conexion_be.php';
+
 session_start();
 
 // Verificar si la sesión está iniciada
@@ -12,6 +15,19 @@ if (!isset($_SESSION['email'])) {
     session_destroy();
     die();
 }
+
+// Verificar la conexión
+if (!$conexion) {
+    die("Conexión fallida: " . mysqli_connect_error());
+}
+
+// Consulta para obtener los recursos
+$consulta = mysqli_query($conexion, "SELECT * FROM r_fisica");
+
+if (!$consulta) {
+    die("Error en la consulta: " . mysqli_error($conexion));
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -69,6 +85,53 @@ if (!isset($_SESSION['email'])) {
             <h2 class="subtitle">Repositorio Física</h2>
         </section>
         <a href="../nexuslearn/r_fisica_form.php">Ir a form</a>
+        
+        <div class="">
+        <table border="1">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Tema</th>
+                <th>Autor</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+                <th>Archivo</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Bucle para recorrer los resultados de la consulta
+            while ($fila = mysqli_fetch_assoc($consulta)) {
+            ?>
+                <tr>
+                    <td><?php echo $fila['titulo']; ?></td>
+                    <td><?php echo $fila['tema']; ?></td>
+                    <td><?php echo $fila['autor']; ?></td>
+                    <td><?php echo $fila['opciones']; ?></td>
+                    <td><?php echo $fila['descripcion']; ?></td>
+                    <td>
+                        <?php
+                        // Obtener el nombre del archivo desde la base de datos
+                        $archivoConFecha = $fila['archivo'];
+                        
+                        // Eliminar la ruta ../files/ y la fecha del nombre del archivo
+                        $nombreArchivo = preg_replace('/^..\/files_fisica\/\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-/', '', $archivoConFecha);
+
+                        // Mostrar el nombre del archivo sin la ruta ni la fecha
+                        echo $nombreArchivo;
+                        ?>
+                    </td>
+                    <td>
+                        <a href="/php/download.php?id=<?php echo $fila['id']; ?>">Descargar</a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
+        </div>
     </main>
 
     <footer class="footer">
@@ -120,3 +183,8 @@ if (!isset($_SESSION['email'])) {
       </script>
 </body>
 </html>
+
+<?php
+// Cerrar la conexión
+mysqli_close($conexion);
+?>

@@ -69,60 +69,47 @@ if (!isset($_SESSION['email'])) {
                 <h2>Comparte tus recursos académicos de química</h2>
                 <p> Sube tus archivos para compartir con la comunidad estudiantil y contribuir al aprendizaje colaborativo. Asegúrate de que los materiales que compartes sean útiles y estén relacionados con nuestros temas de estudio. <b>¡Tu contribución puede marcar la diferencia para otros!</b> </p>
             </div>
-            <div class="content-form">
-                <div class="input-box">
+            <form action="php/insertar_quimica.php" class="content-form" method="post" enctype="multipart/form-data">
+            <div class="input-box">
                     <label for="title">Titulo</label>
-                    <input type="text" name="Titulo" placeholder="Ingresa el titulo del recurso" required>
+                    <input type="text" name="titulo" placeholder="Ingresa el titulo del recurso" required>
                 </div>
                 <div class="input-box">
                     <label for="theme">Tema</label>
-                    <input type="text" name="Tema" placeholder="Ingresa el tema del recurso" required>
+                    <input type="text" name="tema" placeholder="Ingresa el tema del recurso" required>
                 </div>
                 <div class="input-box">
                     <label for="author">Autor</label>
-                    <input type="text" name="Autor" placeholder="Ingresa el autor del recurso" required>
+                    <input type="text" name="autor" placeholder="Ingresa el autor del recurso" required>
                 </div>
                 <div class="input-box">
                     <label for="opciones"> Elige el tipo de recurso: </label>
                     <select name="opciones" id="opciones">
                         <option value="opcion1">Seleccione una opción</option>
-                        <option value="opcion2">Libro</option>
-                        <option value="opcion3">Documento</option>
-                        <option value="opcion4">Video</option>
-                        <option value="opcion5">Diapositivas</option>
-                        <option value="opcion6">Link</option>
-                        <option value="opcion7">Proyecto</option>
-                        <option value="opcion8">Notas personales</option>
-                        <option value="opcion9">Articulo</option>
-                        <option value="opcion10">Otro</option>
+                        <option value="libro">Libro</option>
+                        <option value="documento">Documento</option>
+                        <option value="diapositivas">Diapositivas</option>
+                        <option value="link">Link</option>
+                        <option value="proyecto">Proyecto</option>
+                        <option value="notas personales">Notas personales</option>
+                        <option value="articulo">Articulo</option>
+                        <option value="otro">Otro</option>
                     </select>
                 </div>
                 <div class="input-box">
                     <label for="description">Descripción</label>
                     <textarea name="descripcion" class="campo" placeholder="Ingresa una descripción del recurso"></textarea>
                 </div>
-                <div id="dropzone">
-                    <p>Arrastra los archivos a esta zona <br> 
-                        <label for="archivos">o haga click aquí</label>
-                    </p>
-                    <input type="file" id="archivos" name="archivos" multiple>
+                <div>
+                    <input type="file" id="archivos" name="archivo" required>
                 </div>
-                <ul id="lista_archivos">
-                <?php
-                    $contenido = glob("uploads_quimica/*");
-                    foreach ($contenido as $archivo) {
-                        $nombreArchivo = basename($archivo);
-                        echo "<li><a href='$archivo' download>$nombreArchivo</a></li>";
-                    }
-                ?>
-                </ul>
                 <div class="button-container button-subir">
                     <button type="submit">Subir recurso</button>
                 </div>
                 <div class="button-container button-cancelar">
                     <button type="submit">Cancelar</button>
                 </div>
-            </div>
+            </form>
         </div>
     </main>
     <footer class="footer">
@@ -157,6 +144,5 @@ if (!isset($_SESSION['email'])) {
         </section>
     </footer>
 
-    <script src="js/repo_quimica.js"></script>
 </body>
 </html>

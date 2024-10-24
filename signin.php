@@ -36,10 +36,6 @@
                     <label for="email">Email institucional</label>
                     <input type="email" placeholder="Ingresa el correo institucional" name="email" required>
                 </div>
-                <!--<div class="input-box">
-                    <label for="phone">Celular</label>
-                    <input type="tel" placeholder="Ingresa el numero celular" name="phone" required>
-                </div>-->
                 <div class="input-box">
                     <label for="password">Contraseña</label>
                     <input type="password" placeholder="Ingresa la nueva contraseña" name="contrasena" required>
@@ -48,14 +44,16 @@
                     <label for="Cpassword">Confirmar contraseña</label>
                     <input type="password" placeholder="Confirma la contraseña" name="c_contrasena" required>
                 </div>
-                <span class="gender-title">Genero</span>
-                <div class="gander-category">
-                    <input type="radio" name="genero" id="hombre">
-                    <label for="gender">Hombre</label>
-                    <input type="radio" name="genero" id="mujer">
-                    <label for="gender">Mujer</label>
-                    <input type="radio" name="genero" id="otro">
-                    <label for="gender">Otro</label>
+                <span class="gender-title">Género</span>
+                <div class="gender-category">
+                    <input type="radio" name="genero" id="hombre" value="Hombre" required>
+                    <label for="hombre">Hombre</label>
+                    
+                    <input type="radio" name="genero" id="mujer" value="Mujer">
+                    <label for="mujer">Mujer</label>
+                    
+                    <input type="radio" name="genero" id="otro" value="Otro">
+                    <label for="otro">Otro</label>
                 </div>
                 <div class="button-container">
                     <button type="submit">Registrarse</button>
