@@ -85,6 +85,51 @@ if (!$consulta) {
             <h2 class="subtitle">Repositorio Física</h2>
         </section>
         <a href="../nexuslearn/r_fisica_form.php">Ir a form</a>
+
+        <div class="repositorio">
+            <table>
+                <?php while ($fila = mysqli_fetch_assoc($consulta)) {
+                ?>
+                <tr>
+                    <td>Título</td>
+                    <td><?php echo $fila['titulo']; ?></td>
+                    <td rowspan="6"><a href="/php/download.php?id=<?php echo $fila['id']; ?>">Descargar</a></td>
+                </tr>
+                <tr>
+                    <td>Tema</td>
+                    <td><?php echo $fila['tema']; ?></td>
+                </tr>
+                <tr>
+                    <td>Autor</td>
+                    <td><?php echo $fila['autor']; ?></td>
+                </tr>
+                <tr>
+                    <td>Tipo</td>
+                    <td><?php echo $fila['opciones']; ?></td>
+                </tr>
+                <tr>
+                    <td>Descripción</td>
+                    <td><?php echo $fila['descripcion']; ?></td>
+                </tr>
+                <tr>
+                    <td>Archivo</td>
+                    <td><?php
+                        // Obtener el nombre del archivo desde la base de datos
+                        $archivoConFecha = $fila['archivo'];
+                        
+                        // Eliminar la ruta ../files/ y la fecha del nombre del archivo
+                        $nombreArchivo = preg_replace('/^..\/files_fisica\/\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-/', '', $archivoConFecha);
+
+                        // Mostrar el nombre del archivo sin la ruta ni la fecha
+                        echo $nombreArchivo;
+                        ?>
+                    </td>
+                </tr>
+                <?php
+                }
+                ?>
+            </table>
+        </div>
         
         <div class="">
         <table border="1">
