@@ -1,12 +1,15 @@
 .repositorio_table{
     width: 100%;
-    padding: 10px;
+    padding: 15px;
+    table-layout: fixed;
 }
 
 
 .td_content{
     text-align: left;
     font-size: 15px;
+    word-wrap: break-word;
+    width: 60%;
 }
 
 .td_titles{
@@ -18,4 +21,38 @@
     color: var(--color-title);
     justify-content: space-between;
     font-weight: bold;
+}
+
+.td_decrip{
+    text-align: justify;
+}
+
+.td_row{
+    width: 15%;
+}
+
+.td_download {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.td_img {
+    display: block;
+    width: 70px;
+    height: 70px;;
+}
+
+.container_repo {
+    padding-top: 0;
+}
+
+.a_container{
+    text-align: right;
+}
+
+.cta_repo{
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
