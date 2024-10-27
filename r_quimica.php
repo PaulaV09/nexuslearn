@@ -123,7 +123,7 @@ if (!$consulta) {
                         ?>
                     </td>
                     <td>
-                        <a href="/php/download.php?id=<?php echo $fila['id']; ?>">Descargar</a>
+                        <a href="../nexuslearn/php/download_quimica.php?archivo=<?php echo urlencode(basename($fila['archivo'])); ?>">Descargar</a>
                     </td>
                 </tr>
             <?php
