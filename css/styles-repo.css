@@ -1,0 +1,21 @@
+.repositorio_table{
+    width: 100%;
+    padding: 10px;
+}
+
+
+.td_content{
+    text-align: left;
+    font-size: 15px;
+}
+
+.td_titles{
+    text-align: left;
+    display: flex;
+    font-size: 15px;
+    padding: 10px 0 10px;
+    cursor: pointer;
+    color: var(--color-title);
+    justify-content: space-between;
+    font-weight: bold;
+}

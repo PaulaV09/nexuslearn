@@ -41,6 +41,7 @@ if (!$consulta) {
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="./css/styles-repo.css">
 </head>
 <body>
     <header class="header">
@@ -81,102 +82,57 @@ if (!$consulta) {
     </header>
 
     <main>
-        <section class="container">
+        <section class="questions container">
             <h2 class="subtitle">Repositorio Física</h2>
+            <p class="questions__paragraph">Aquí podrás encontrar libros, documentos, link, videos, etc sobre Física</p>
+            <a href="../nexuslearn/r_fisica_form.php">Ir a form</a>
+            <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <table class="repositorio_table">
+                            <?php while ($fila = mysqli_fetch_assoc($consulta)) {
+                            ?>
+                            <tr>
+                                <td class="td_titles td">Título</td>
+                                <td class="td_content td"><?php echo $fila['titulo']; ?></td>
+                                <td rowspan="6"><a href="/php/download.php?id=<?php echo $fila['id']; ?>">Descargar</a></td>
+                            </tr>
+                            <tr>
+                                <td class="td_titles td">Tema</td>
+                                <td class="td_content td"><?php echo $fila['tema']; ?></td>
+                            </tr>
+                            <tr>
+                                <td class="td_titles td">Autor</td>
+                                <td class="td_content td"><?php echo $fila['autor']; ?></td>
+                            </tr>
+                            <tr>
+                                <td class="td_titles td">Tipo de recurso</td>
+                                <td class="td_content td"><?php echo $fila['opciones']; ?></td>
+                            </tr>
+                            <tr>
+                                <td class="td_titles td">Descripción</td>
+                                <td class="td_content td"><?php echo $fila['descripcion']; ?></td>
+                            </tr>
+                            <tr>
+                                <td class="td_titles td">Nombre del recurso</td>
+                                <td class="td_content td"><?php
+                                            
+                                    $archivoConFecha = $fila['archivo'];
+                                            
+                                    $nombreArchivo = preg_replace('/^..\/files_fisica\/\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-/', '', $archivoConFecha);
+
+                                    echo $nombreArchivo;
+                                    ?>
+                                </td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </table>
+                    </div>
+                </article>
+            </section>
         </section>
-        <a href="../nexuslearn/r_fisica_form.php">Ir a form</a>
-
-        <div class="repositorio">
-            <table>
-                <?php while ($fila = mysqli_fetch_assoc($consulta)) {
-                ?>
-                <tr>
-                    <td>Título</td>
-                    <td><?php echo $fila['titulo']; ?></td>
-                    <td rowspan="6"><a href="/php/download.php?id=<?php echo $fila['id']; ?>">Descargar</a></td>
-                </tr>
-                <tr>
-                    <td>Tema</td>
-                    <td><?php echo $fila['tema']; ?></td>
-                </tr>
-                <tr>
-                    <td>Autor</td>
-                    <td><?php echo $fila['autor']; ?></td>
-                </tr>
-                <tr>
-                    <td>Tipo</td>
-                    <td><?php echo $fila['opciones']; ?></td>
-                </tr>
-                <tr>
-                    <td>Descripción</td>
-                    <td><?php echo $fila['descripcion']; ?></td>
-                </tr>
-                <tr>
-                    <td>Archivo</td>
-                    <td><?php
-                        // Obtener el nombre del archivo desde la base de datos
-                        $archivoConFecha = $fila['archivo'];
-                        
-                        // Eliminar la ruta ../files/ y la fecha del nombre del archivo
-                        $nombreArchivo = preg_replace('/^..\/files_fisica\/\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-/', '', $archivoConFecha);
-
-                        // Mostrar el nombre del archivo sin la ruta ni la fecha
-                        echo $nombreArchivo;
-                        ?>
-                    </td>
-                </tr>
-                <?php
-                }
-                ?>
-            </table>
-        </div>
-        
-        <div class="">
-        <table border="1">
-        <thead>
-            <tr>
-                <th>Título</th>
-                <th>Tema</th>
-                <th>Autor</th>
-                <th>Tipo</th>
-                <th>Descripción</th>
-                <th>Archivo</th>
-                <th>Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            // Bucle para recorrer los resultados de la consulta
-            while ($fila = mysqli_fetch_assoc($consulta)) {
-            ?>
-                <tr>
-                    <td><?php echo $fila['titulo']; ?></td>
-                    <td><?php echo $fila['tema']; ?></td>
-                    <td><?php echo $fila['autor']; ?></td>
-                    <td><?php echo $fila['opciones']; ?></td>
-                    <td><?php echo $fila['descripcion']; ?></td>
-                    <td>
-                        <?php
-                        // Obtener el nombre del archivo desde la base de datos
-                        $archivoConFecha = $fila['archivo'];
-                        
-                        // Eliminar la ruta ../files/ y la fecha del nombre del archivo
-                        $nombreArchivo = preg_replace('/^..\/files_fisica\/\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-/', '', $archivoConFecha);
-
-                        // Mostrar el nombre del archivo sin la ruta ni la fecha
-                        echo $nombreArchivo;
-                        ?>
-                    </td>
-                    <td>
-                        <a href="/php/download.php?id=<?php echo $fila['id']; ?>">Descargar</a>
-                    </td>
-                </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
-        </div>
     </main>
 
     <footer class="footer">
