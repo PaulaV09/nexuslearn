@@ -6,7 +6,7 @@ if (!isset($_SESSION['email'])) {
     echo '
         <script>
             alert("Debes iniciar sesión");
-            window.location = "index.html";
+            window.location = "index.php";
         </script>
     ';
     session_destroy();

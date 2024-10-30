@@ -13,11 +13,16 @@
         $contrasena = hash('sha512', $contrasena);
 
         // Consulta para verificar las credenciales
-        $validar_login = mysqli_query($conexion, "SELECT * FROM usuarios WHERE email='$email' AND contrasena='$contrasena'");
+        $validar_login = mysqli_query($conexion, "SELECT id FROM usuarios WHERE email='$email' AND contrasena='$contrasena'");
 
         if (mysqli_num_rows($validar_login) > 0) {
+            // Obtener el id del usuario
+            $usuario = mysqli_fetch_assoc($validar_login);
+            $id_usuario = $usuario['id'];
+
             // Iniciar sesión y redirigir al usuario a la página de sesión abierta
             $_SESSION['email'] = $email;
+            $_SESSION['id'] = $id_usuario;
             header("Location: ../SesionAbierta.php");
             exit();
         } else {
