@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2024 a las 04:41:51
+-- Tiempo de generación: 31-10-2024 a las 04:49:48
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,34 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `nexuslearn`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `hilo`
+--
+
+CREATE TABLE `hilo` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(150) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `contenido` varchar(1000) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `f_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
+  `correo_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `respuesta`
+--
+
+CREATE TABLE `respuesta` (
+  `id` int(11) NOT NULL,
+  `contenido` varchar(1000) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `f_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
+  `correo_id` int(11) NOT NULL,
+  `hilo_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -105,10 +133,24 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `hilo`
+--
+ALTER TABLE `hilo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `usuarios_hilo` (`correo_id`);
+
+--
+-- Indices de la tabla `respuesta`
+--
+ALTER TABLE `respuesta`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `usuarios_respuesta` (`correo_id`),
+  ADD KEY `hilo_respuesta` (`hilo_id`);
 
 --
 -- Indices de la tabla `r_fisica`
@@ -138,11 +180,24 @@ ALTER TABLE `r_quimica`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `hilo`
+--
+ALTER TABLE `hilo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `respuesta`
+--
+ALTER TABLE `respuesta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `r_fisica`
@@ -160,19 +215,36 @@ ALTER TABLE `r_mate`
 -- AUTO_INCREMENT de la tabla `r_program`
 --
 ALTER TABLE `r_program`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `r_quimica`
 --
 ALTER TABLE `r_quimica`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `hilo`
+--
+ALTER TABLE `hilo`
+  ADD CONSTRAINT `usuarios_hilo` FOREIGN KEY (`correo_id`) REFERENCES `usuarios` (`id`);
+
+--
+-- Filtros para la tabla `respuesta`
+--
+ALTER TABLE `respuesta`
+  ADD CONSTRAINT `hilo_respuesta` FOREIGN KEY (`hilo_id`) REFERENCES `hilo` (`id`),
+  ADD CONSTRAINT `usuarios_respuesta` FOREIGN KEY (`correo_id`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

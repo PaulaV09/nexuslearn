@@ -4,25 +4,29 @@ session_start();
 
 include '../nexuslearn/php/conexion_be.php';
 
-// Verificar si la sesión está iniciada
 if (!isset($_SESSION['email'])) {
-    echo '
-        <script>
-            alert("Debes iniciar sesión");
-            window.location = "index.php";
-        </script>
-    ';
+    echo '<script>alert("Debes iniciar sesión"); window.location = "index.php";</script>';
     session_destroy();
     die();
 }
 
-// Obtener hilos de la base de datos
-$consultaHilos = "SELECT h.id, h.titulo, h.contenido, h.f_creacion, u.email AS autor 
-                  FROM hilo h 
-                  JOIN usuarios u ON h.correo_id = u.id 
-                  ORDER BY h.f_creacion DESC";
-$resultadoHilos = mysqli_query($conexion, $consultaHilos);
+$hiloID = $_GET['id'];
 
+// Obtener datos del hilo
+$consultaHilo = "SELECT h.titulo, h.contenido, h.f_creacion, u.email AS autor
+                 FROM hilo h
+                 JOIN usuarios u ON h.correo_id = u.id
+                 WHERE h.id = $hiloID";
+$resultadoHilo = mysqli_query($conexion, $consultaHilo);
+$hilo = mysqli_fetch_assoc($resultadoHilo);
+
+// Obtener respuestas del hilo
+$consultaRespuestas = "SELECT r.contenido, r.f_creacion, u.email AS autor
+                       FROM respuesta r
+                       JOIN usuarios u ON r.correo_id = u.id
+                       WHERE r.hilo_id = $hiloID
+                       ORDER BY r.f_creacion ASC";
+$resultadoRespuestas = mysqli_query($conexion, $consultaRespuestas);
 ?>
 
 <!DOCTYPE html>
@@ -76,31 +80,27 @@ $resultadoHilos = mysqli_query($conexion, $consultaHilos);
     </header>
 
     <main>
-        <section class="container">
-            <h2 class="subtitle">Foro Académico</h2>
-        </section>
-        <section>
-        <h3>Hilos</h3>
-        <?php while ($hilo = mysqli_fetch_assoc($resultadoHilos)) { ?>
+        <h2><?php echo htmlspecialchars($hilo['titulo']); ?></h2>
+        <p><?php echo htmlspecialchars($hilo['contenido']); ?></p>
+        <small>Publicado por <?php echo htmlspecialchars($hilo['autor']); ?> el <?php echo $hilo['f_creacion']; ?></small>
+
+        <h3>Respuestas</h3>
+        <?php while ($respuesta = mysqli_fetch_assoc($resultadoRespuestas)) { ?>
             <div>
-                <h4><a href="ver_hilo.php?id=<?php echo $hilo['id']; ?>"><?php echo htmlspecialchars($hilo['titulo']); ?></a></h4>
-                <p><?php echo htmlspecialchars($hilo['contenido']); ?></p>
-                <small>Publicado por <?php echo htmlspecialchars($hilo['autor']); ?> el <?php echo $hilo['f_creacion']; ?></small>
+                <p><?php echo htmlspecialchars($respuesta['contenido']); ?></p>
+                <small>Comentado por <?php echo htmlspecialchars($respuesta['autor']); ?> el <?php echo $respuesta['f_creacion']; ?></small>
             </div>
         <?php } ?>
-    </section>
 
-    <!-- Formulario para crear un nuevo hilo -->
-    <section>
-    <h3>Crear un nuevo hilo</h3>
-        <form action="../nexuslearn/php/crear_hilo.php" method="POST">
-            <label for="titulo">Título:</label>
-            <input type="text" name="titulo" required>
-            <label for="contenido">Contenido:</label>
-            <textarea name="contenido" required></textarea>
-            <button type="submit">Publicar</button>
-        </form>
-    </section>
+        <!-- Formulario para responder -->
+        <section>
+            <h4>Agregar una respuesta</h4>
+            <form action="../nexuslearn/php/crear_respuesta.php" method="POST">
+                <textarea name="contenido" required></textarea>
+                <input type="hidden" name="hilo_id" value="<?php echo $hiloID; ?>">
+                <button type="submit">Responder</button>
+            </form>
+        </section>
     </main>
 
     <footer class="footer">
