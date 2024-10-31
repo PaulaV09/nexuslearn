@@ -112,24 +112,24 @@ if (!isset($_SESSION['email'])) {
                     <h3 class="meet__meet">Sala 4</h3>
 
                     <div class="meet__items">
-                        <p class="meet__features">De 2 a 4 participantes</p>
+                        <p class="meet__features">De 2 a 200 participantes</p>
                         <p class="meet__features">Categoría libre</p>
                         <p class="meet__features">Tiempo limitado</p>
                     </div>
 
-                    <a href="" class="meet__cta">Ir a la sala</a>
+                    <a href="https://webcolaborativa.whereby.com/sala-49bc7ecec-54e7-47fc-a5cf-fd3ac4975bb9?roomKey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZWV0aW5nSWQiOiI5MjY0NTA0MiIsInJvb21SZWZlcmVuY2UiOnsicm9vbU5hbWUiOiIvc2FsYS00OWJjN2VjZWMtNTRlNy00N2ZjLWE1Y2YtZmQzYWM0OTc1YmI5Iiwib3JnYW5pemF0aW9uSWQiOiIyNTYxMjgifSwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50cy5zcnYud2hlcmVieS5jb20iLCJpYXQiOjE3MzAzOTQwMDUsInJvb21LZXlUeXBlIjoibWVldGluZ0hvc3QifQ.kZEgYF02ViNYXex5mtKtbZxlVpzkmdiP9Fc7DqRL1sc" class="meet__cta">Ir a la sala</a>
                 </div>
 
                 <div class="meet__element">
                     <h3 class="meet__meet">Sala 5</h3>
 
                     <div class="meet__items">
-                        <p class="meet__features">De 2 a 4 participantes</p>
+                        <p class="meet__features">De 2 a 200 participantes</p>
                         <p class="meet__features">Categoría libre</p>
                         <p class="meet__features">Tiempo limitado</p>
                     </div>
 
-                    <a href="" class="meet__cta">Ir a la sala</a>
+                    <a href="https://webcolaborativa.whereby.com/sala-5c3942e99-db05-472c-87dc-25cb2f1d5a3e?roomKey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZWV0aW5nSWQiOiI5MjY0NTQxMCIsInJvb21SZWZlcmVuY2UiOnsicm9vbU5hbWUiOiIvc2FsYS01YzM5NDJlOTktZGIwNS00NzJjLTg3ZGMtMjVjYjJmMWQ1YTNlIiwib3JnYW5pemF0aW9uSWQiOiIyNTYxMjgifSwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50cy5zcnYud2hlcmVieS5jb20iLCJpYXQiOjE3MzAzOTQyMDgsInJvb21LZXlUeXBlIjoibWVldGluZ0hvc3QifQ.nBUnFFOHSP25ldYzgXpCD939-kIiM22D-NAfIjJY5SU" class="meet__cta">Ir a la sala</a>
                 </div>
             </div>
         </section>
