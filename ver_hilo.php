@@ -89,15 +89,15 @@ $resultadoRespuestas = mysqli_query($conexion, $consultaRespuestas);
             </div>
             <h3>Respuestas</h3>
             <?php while ($respuesta = mysqli_fetch_assoc($resultadoRespuestas)) { ?>
-                <div>
+                <div class="vh_answers">
                     <p><?php echo htmlspecialchars($respuesta['contenido']); ?></p>
                     <small>Comentado por <?php echo htmlspecialchars($respuesta['autor']); ?> el <?php echo $respuesta['f_creacion']; ?></small>
                 </div>
             <?php } ?>
 
             <!-- Formulario para responder -->
-            <section>
-                <h4>Agregar una respuesta</h4>
+            <section class="vh_answer">
+                <h3>Agregar una respuesta</h3>
                 <form action="../nexuslearn/php/crear_respuesta.php" method="POST">
                     <textarea name="contenido" required></textarea>
                     <input type="hidden" name="hilo_id" value="<?php echo $hiloID; ?>">

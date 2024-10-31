@@ -81,7 +81,7 @@ $resultadoHilos = mysqli_query($conexion, $consultaHilos);
             <h2 class="subtitle">Foro académico</h2>
             <p class="questions__paragraph">Aquí podrás interactuar con los demás estudiantes para resolver las dudas académicas que tengas</p>
             <div class="button_container">
-                <a href="../nexuslearn/foro_form.php" class="button_nh">Subir recurso</a>
+                <a href="../nexuslearn/foro_form.php" class="button_nh">Nuevo hilo</a>
             </div>
             <h3>Hilos</h3>
             <section class="questions__container">
