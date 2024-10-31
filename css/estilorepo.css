@@ -31,6 +31,20 @@ main{
     text-align: justify;
 }
 
+.content-form-foro h3{
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: left;
+    color: #000;
+    padding-bottom: 8px;
+    border-bottom: 1px solid silver;
+}
+
+.form-foro{
+    padding: 0 30px;
+}
+
 .content-form{
     padding: 20px 0;
 }
@@ -152,7 +166,7 @@ main{
 
 @media (max-width:800px) {
     .container-form {
-        flex-direction: column; 
+        display: block; 
     }
 
     .info-form {

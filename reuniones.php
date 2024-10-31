@@ -107,6 +107,30 @@ if (!isset($_SESSION['email'])) {
 
                     <a href="https://webcolaborativa.whereby.com/sala32ce09dc4-ff22-4c67-963b-9e91e8600e79?roomKey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZWV0aW5nSWQiOiI5MDAzMzM0MSIsInJvb21SZWZlcmVuY2UiOnsicm9vbU5hbWUiOiIvc2FsYTMyY2UwOWRjNC1mZjIyLTRjNjctOTYzYi05ZTkxZTg2MDBlNzkiLCJvcmdhbml6YXRpb25JZCI6IjI1NjEyOCJ9LCJpc3MiOiJodHRwczovL2FjY291bnRzLnNydi53aGVyZWJ5LmNvbSIsImlhdCI6MTcyNDk2NzQ2Nywicm9vbUtleVR5cGUiOiJtZWV0aW5nSG9zdCJ9.SgHRBweY-nodRJ-d_nTW_r-ITk-6tDg6kngBHoWg80s" class="meet__cta">Ir a sala</a>
                 </div>
+
+                <div class="meet__element">
+                    <h3 class="meet__meet">Sala 4</h3>
+
+                    <div class="meet__items">
+                        <p class="meet__features">De 2 a 4 participantes</p>
+                        <p class="meet__features">Categoría libre</p>
+                        <p class="meet__features">Tiempo limitado</p>
+                    </div>
+
+                    <a href="" class="meet__cta">Ir a la sala</a>
+                </div>
+
+                <div class="meet__element">
+                    <h3 class="meet__meet">Sala 5</h3>
+
+                    <div class="meet__items">
+                        <p class="meet__features">De 2 a 4 participantes</p>
+                        <p class="meet__features">Categoría libre</p>
+                        <p class="meet__features">Tiempo limitado</p>
+                    </div>
+
+                    <a href="" class="meet__cta">Ir a la sala</a>
+                </div>
             </div>
         </section>
     </main>

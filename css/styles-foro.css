@@ -1,0 +1,89 @@
+.form-foro{
+    padding: 0 30px;
+}
+
+.foro_container{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.button_container{
+    text-align: right;
+    padding: 0 30px;
+    padding-top: 30px;
+}
+
+.button_nh{
+    margin-bottom: 20px;
+    display: inline-block;
+    background-color: #af7ac5;
+    justify-self: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 13px 30px;
+    border-radius: 32px;
+    margin-top: 20px;
+}
+
+.foro_container h3{
+    font-size: 25px;
+    font-weight: 600;
+    text-align: left;
+    color: #000;
+    padding-bottom: 8px;
+    border-bottom: 1px solid silver;
+}
+
+.hilo_container{
+    border: 1px solid #5454D4;
+    border-radius: 6px;
+    padding: 30px;
+    display: flex; 
+    flex-direction: column;
+
+}
+
+.hilo_title a{
+    text-align: left;
+    display: flex;
+    font-size: 19px;
+    cursor: pointer;
+    color: var(--color-title);
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.hilo_content{
+    text-align: justify;
+    font-size: 15px;
+    padding: 15px 0;
+}
+
+.hilo_info{
+    text-align: left;
+    font-size: 11px;
+}
+
+.vh_container{
+    padding: 40px;
+}
+
+.vh_container h2{
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: left;
+    color: #000;
+    padding-bottom: 8px;
+    border-bottom: 1px solid silver;
+}
+
+.vh_container p{
+    text-align: justify;
+    font-size: 20px;
+    padding: 15px 0;
+}

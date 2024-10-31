@@ -36,6 +36,7 @@ $resultadoHilos = mysqli_query($conexion, $consultaHilos);
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="./css/styles-foro.css">
 </head>
 <body>
     <header class="header">
@@ -76,31 +77,23 @@ $resultadoHilos = mysqli_query($conexion, $consultaHilos);
     </header>
 
     <main>
-        <section class="container">
-            <h2 class="subtitle">Foro Académico</h2>
-        </section>
-        <section>
-        <h3>Hilos</h3>
-        <?php while ($hilo = mysqli_fetch_assoc($resultadoHilos)) { ?>
-            <div>
-                <h4><a href="ver_hilo.php?id=<?php echo $hilo['id']; ?>"><?php echo htmlspecialchars($hilo['titulo']); ?></a></h4>
-                <p><?php echo htmlspecialchars($hilo['contenido']); ?></p>
-                <small>Publicado por <?php echo htmlspecialchars($hilo['autor']); ?> el <?php echo $hilo['f_creacion']; ?></small>
+        <section class="foro_container">
+            <h2 class="subtitle">Foro académico</h2>
+            <p class="questions__paragraph">Aquí podrás interactuar con los demás estudiantes para resolver las dudas académicas que tengas</p>
+            <div class="button_container">
+                <a href="../nexuslearn/foro_form.php" class="button_nh">Subir recurso</a>
             </div>
-        <?php } ?>
-    </section>
-
-    <!-- Formulario para crear un nuevo hilo -->
-    <section>
-    <h3>Crear un nuevo hilo</h3>
-        <form action="../nexuslearn/php/crear_hilo.php" method="POST">
-            <label for="titulo">Título:</label>
-            <input type="text" name="titulo" required>
-            <label for="contenido">Contenido:</label>
-            <textarea name="contenido" required></textarea>
-            <button type="submit">Publicar</button>
-        </form>
-    </section>
+            <h3>Hilos</h3>
+            <section class="questions__container">
+                <?php while ($hilo = mysqli_fetch_assoc($resultadoHilos)) { ?>
+                    <div class="hilo_container">
+                        <h4 class="hilo_title"><a href="ver_hilo.php?id=<?php echo $hilo['id']; ?>"><?php echo htmlspecialchars($hilo['titulo']); ?></a></h4>
+                        <p class="hilo_content"><?php echo htmlspecialchars($hilo['contenido']); ?></p>
+                        <p class="hilo_info">Publicado por <?php echo htmlspecialchars($hilo['autor']); ?> el <?php echo $hilo['f_creacion']; ?></p>
+                    </div>
+                <?php } ?>
+            </section>
+        </section>
     </main>
 
     <footer class="footer">

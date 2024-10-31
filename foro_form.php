@@ -4,29 +4,25 @@ session_start();
 
 include '../nexuslearn/php/conexion_be.php';
 
+// Verificar si la sesión está iniciada
 if (!isset($_SESSION['email'])) {
-    echo '<script>alert("Debes iniciar sesión"); window.location = "index.php";</script>';
+    echo '
+        <script>
+            alert("Debes iniciar sesión");
+            window.location = "index.php";
+        </script>
+    ';
     session_destroy();
     die();
 }
 
-$hiloID = $_GET['id'];
+// Obtener hilos de la base de datos
+$consultaHilos = "SELECT h.id, h.titulo, h.contenido, h.f_creacion, u.email AS autor 
+                  FROM hilo h 
+                  JOIN usuarios u ON h.correo_id = u.id 
+                  ORDER BY h.f_creacion DESC";
+$resultadoHilos = mysqli_query($conexion, $consultaHilos);
 
-// Obtener datos del hilo
-$consultaHilo = "SELECT h.titulo, h.contenido, h.f_creacion, u.email AS autor
-                 FROM hilo h
-                 JOIN usuarios u ON h.correo_id = u.id
-                 WHERE h.id = $hiloID";
-$resultadoHilo = mysqli_query($conexion, $consultaHilo);
-$hilo = mysqli_fetch_assoc($resultadoHilo);
-
-// Obtener respuestas del hilo
-$consultaRespuestas = "SELECT r.contenido, r.f_creacion, u.email AS autor
-                       FROM respuesta r
-                       JOIN usuarios u ON r.correo_id = u.id
-                       WHERE r.hilo_id = $hiloID
-                       ORDER BY r.f_creacion ASC";
-$resultadoRespuestas = mysqli_query($conexion, $consultaRespuestas);
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +36,7 @@ $resultadoRespuestas = mysqli_query($conexion, $consultaRespuestas);
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/style2.css">
-    <link rel="stylesheet" href="./css/styles-foro.css">
+    <link rel="stylesheet" href="./css/estilorepo.css">
 </head>
 <body>
     <header class="header">
@@ -81,30 +77,24 @@ $resultadoRespuestas = mysqli_query($conexion, $consultaRespuestas);
     </header>
 
     <main>
-        <div class="vh_container">
-            <div class="vh_hilo">
-                <h2><?php echo htmlspecialchars($hilo['titulo']); ?></h2>
-                <p><?php echo htmlspecialchars($hilo['contenido']); ?></p>
-                <small>Publicado por <?php echo htmlspecialchars($hilo['autor']); ?> el <?php echo $hilo['f_creacion']; ?></small>
-            </div>
-            <h3>Respuestas</h3>
-            <?php while ($respuesta = mysqli_fetch_assoc($resultadoRespuestas)) { ?>
-                <div>
-                    <p><?php echo htmlspecialchars($respuesta['contenido']); ?></p>
-                    <small>Comentado por <?php echo htmlspecialchars($respuesta['autor']); ?> el <?php echo $respuesta['f_creacion']; ?></small>
-                </div>
-            <?php } ?>
-
-            <!-- Formulario para responder -->
-            <section>
-                <h4>Agregar una respuesta</h4>
-                <form action="../nexuslearn/php/crear_respuesta.php" method="POST">
-                    <textarea name="contenido" required></textarea>
-                    <input type="hidden" name="hilo_id" value="<?php echo $hiloID; ?>">
-                    <button type="submit">Responder</button>
+        <section class="content-form-foro">
+            <h3>Crear un nuevo hilo</h3>
+            <div class="form-foro">
+                <form action="../nexuslearn/php/crear_hilo.php" method="POST" class="content-form">
+                    <div class="input-box">
+                        <label for="titulo">Título:</label>
+                        <input type="text" name="titulo" placeholder="Ingresa el titulo del hilo" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="contenido">Contenido:</label>
+                        <textarea name="contenido" class="campo" placeholder="Ingresa una descripción del hilo"></textarea>
+                    </div>
+                    <div class="button-container button-subir">
+                        <button type="submit">Publicar</button>
+                    </div>
                 </form>
-            </section>
-        </div>
+            </div>   
+        </section>
     </main>
 
     <footer class="footer">
