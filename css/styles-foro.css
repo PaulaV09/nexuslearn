@@ -44,7 +44,13 @@
     padding: 30px;
     display: flex; 
     flex-direction: column;
+    overflow: hidden;
+}
 
+.hilo_title{
+    word-wrap: break-word;
+    word-break: break-word; 
+    overflow-wrap: break-word;
 }
 
 .hilo_title a{
@@ -61,11 +67,17 @@
     text-align: justify;
     font-size: 15px;
     padding: 15px 0;
+    word-wrap: break-word;
+    word-break: break-word; 
+    overflow-wrap: break-word;
 }
 
 .hilo_info{
     text-align: left;
     font-size: 11px;
+    word-wrap: break-word;
+    word-break: break-word; 
+    overflow-wrap: break-word;
 }
 
 .vh_container{
@@ -88,6 +100,9 @@
     text-align: justify;
     font-size: 20px;
     padding: 15px 0;
+    word-wrap: break-word;       
+    overflow-wrap: break-word;   
+    white-space: normal;
 }
 
 .vh_container small{
@@ -138,4 +153,93 @@
     background-image: linear-gradient(to right, #f39c12, #884ea0);
     text-align: center; 
 
+}
+
+@media (max-width: 700px) {
+    .foro_container {
+        width: 100%;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    .button_container {
+        text-align: center; 
+        padding: 0;
+    }
+
+    .button_nh {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .foro_container h3 {
+        font-size: 22px;
+        text-align: left;
+        padding-bottom: 5px;
+    }
+
+    .hilo_container {
+        padding: 20px;
+        border: 1px solid #5454D4;
+        border-radius: 6px;
+        margin-bottom: 15px;
+    }
+
+    .hilo_title a {
+        font-size: 18px;
+        display: block;
+        text-align: center;
+    }
+
+    .hilo_content {
+        font-size: 14px;
+        padding: 10px 0;
+        text-align: justify;
+    }
+
+    .hilo_info {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .vh_container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .vh_container h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .vh_container p,
+    .vh_answers p {
+        font-size: 16px;
+    }
+
+    .vh_container h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .vh_answers {
+        margin: 15px 5px;
+        padding: 10px;
+    }
+
+    .vh_answer {
+        margin: 30px 5px 10px 5px;
+    }
+
+    .vh_answer textarea {
+        height: 80px;
+        font-size: 14px;
+    }
+
+    .vh_answer button {
+        font-size: 16px;
+        padding: 10px;
+    }
 }

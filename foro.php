@@ -39,7 +39,7 @@ $resultadoHilos = mysqli_query($conexion, $consultaHilos);
     <link rel="stylesheet" href="./css/styles-foro.css">
 </head>
 <body>
-    <header class="header">
+<header class="header">
         <nav class="nav--2">
             <div class="nav_log">
                 <h2 class="nav_title">NexusLearn</h2>

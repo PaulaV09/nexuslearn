@@ -56,3 +56,27 @@
     margin-top: 40px;
     margin-bottom: 20px;
 }
+
+@media (max-width: 700px) {
+    .repositorio_table td, 
+    .repositorio_table th {
+        display: block;
+        width: 100%;
+    }
+
+    .td_row {
+        display: none;
+    }
+
+    .repositorio_table tr {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .td_download {
+        display: block;
+        text-align: center;
+        padding-top: 15px;
+    }
+}
+
