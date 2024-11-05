@@ -88,12 +88,12 @@ if (!$consulta) {
             <div class="a_container">
                 <a href="../nexuslearn/r_program_form.php" class="cta cta_repo">Subir recurso</a>
             </div>
+            <?php while ($fila = mysqli_fetch_assoc($consulta)) {
+                                ?>
                 <section class="questions__container container_repo">
                     <article class="questions__padding">
                         <div class="questions__answer">
                             <table class="repositorio_table">
-                                <?php while ($fila = mysqli_fetch_assoc($consulta)) {
-                                ?>
                                 <tr>
                                     <td class="td_titles">Título</td>
                                     <td class="td_content"><?php echo $fila['titulo']; ?></td>
@@ -131,13 +131,13 @@ if (!$consulta) {
                                         ?>
                                     </td>
                                 </tr>
-                                <?php
-                                }
-                                ?>
                             </table>
                         </div>
                     </article>
                 </section>
+                <?php
+                                }
+                                ?>
             </section>
     </main>
 
