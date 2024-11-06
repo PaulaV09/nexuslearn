@@ -29,7 +29,7 @@ if ($_FILES["archivo"]) {
         
         if ($resultado) {
             echo "<script>alert('Recurso subido correctamente');
-            window.location='../r_mate.php'
+            window.location='../vistas/r_mate.php'
             </script>";
         } else {
             printf("Error en la inserción: %s\n", mysqli_error($conexion));

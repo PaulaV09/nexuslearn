@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 // Verificar si la sesión está iniciada
@@ -12,21 +13,25 @@ if (!isset($_SESSION['email'])) {
     session_destroy();
     die();
 }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusLearn</title>
-    <link rel="shortcut icon" href="./images/Favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/style2.css">
-    <link rel="stylesheet" href="./css/estilorepo.css">
+    <link rel="shortcut icon" href="../images/Favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/estilorepo.css">
 </head>
-<body>
+
+<body onload="if(performance.navigation.type == 2) location.reload();">
     <header class="header">
         <nav class="nav--2">
             <div class="nav_log">
@@ -34,43 +39,43 @@ if (!isset($_SESSION['email'])) {
             </div>
             <ul class="nav_link nav_link--menu">
                 <li class="nav_items">
-                    <a href="../nexuslearn/SesionAbierta.php" class="nav_links">Inicio</a>
+                    <a href="../vistas/SesionAbierta.php" class="nav_links">Inicio</a>
                 </li>
                 <li class="nav_items">
-                    <a href="../nexuslearn/foro.php" class="nav_links">Foro</a>
+                    <a href="../vistas/foro.php" class="nav_links">Foro</a>
                 </li>
                 <li class="nav_items">
-                    <a href="../nexuslearn/repositorio.php" class="nav_links">Repositorio</a>
+                    <a href="../vistas/repositorio.php" class="nav_links">Repositorio</a>
                     <ul class="vertical_nav">
-                        <li class="nav_items"><a href="../nexuslearn/r_mate.php" class="nav_link--v">Matematicas</a></li>
-                        <li class="nav_items"><a href="../nexuslearn/r_fisica.php" class="nav_link--v">Fisica</a></li>
-                        <li class="nav_items"><a href="../nexuslearn/r_quimica.php" class="nav_link--v">Quimica</a></li>
-                        <li class="nav_items"><a href="../nexuslearn/r_program.php" class="nav_link--v">Programación</a></li>
+                        <li class="nav_items"><a href="../vistas/r_mate.php" class="nav_link--v">Matematicas</a></li>
+                        <li class="nav_items"><a href="../vistas/r_fisica.php" class="nav_link--v">Fisica</a></li>
+                        <li class="nav_items"><a href="../vistas/r_quimica.php" class="nav_link--v">Quimica</a></li>
+                        <li class="nav_items"><a href="../vistas/r_program.php" class="nav_link--v">Programación</a></li>
                     </ul>
                 </li>
                 <li class="nav_items">
-                    <a href="../nexuslearn/reuniones.php" class="nav_links">Reuniones</a>
+                    <a href="../vistas/reuniones.php" class="nav_links">Reuniones</a>
                 </li>
                 <li class="nav_items">
-                    <a href="php/cerrar_sesion.php" class="nav_links">Cerrar Sesión</a>
+                    <a href="../php/cerrar_sesion.php" class="nav_links">Cerrar Sesión</a>
                 </li>
 
-                <img src="./images/close.svg" alt="Cerrar" class="nav_close">
+                <img src="../images/close.svg" alt="Cerrar" class="nav_close">
             </ul>
 
             <div class="nav_menu">
-                <img src="./images/menumovil.svg" alt="Menú" class="nav_img">
+                <img src="../images/menumovil.svg" alt="Menú" class="nav_img">
             </div>
         </nav>
     </header>
     <main>
         <div class="container-form">
             <div class="info-form">
-                <h2>Comparte tus recursos académicos de química</h2>
+                <h2>Comparte tus recursos académicos de física</h2>
                 <p> Sube tus archivos para compartir con la comunidad estudiantil y contribuir al aprendizaje colaborativo. Asegúrate de que los materiales que compartes sean útiles y estén relacionados con nuestros temas de estudio. <b>¡Tu contribución puede marcar la diferencia para otros!</b> </p>
             </div>
-            <form action="php/insertar_quimica.php" class="content-form" method="post" enctype="multipart/form-data">
-            <div class="input-box">
+            <form action="../php/insertar_fisica.php" class="content-form" method="post" enctype="multipart/form-data">
+                <div class="input-box">
                     <label for="title">Titulo</label>
                     <input type="text" name="titulo" placeholder="Ingresa el titulo del recurso" required>
                 </div>
@@ -107,7 +112,7 @@ if (!isset($_SESSION['email'])) {
                     <button type="submit">Subir recurso</button>
                 </div>
                 <div class="button-container button-cancelar">
-                    <button type="submit">Cancelar</button>
+                    <button type="button" onclick="window.location.href='r_fisica.php'">Cancelar</button>
                 </div>
             </form>
         </div>
@@ -118,16 +123,16 @@ if (!isset($_SESSION['email'])) {
                 <h2 class="footer_title">NexusLearn</h2>
                 <ul class="nav_link nav_link--footer">
                     <li class="nav_items">
-                        <a href="../nexuslearn/SesionAbierta.php" class="nav_links">Inicio</a>
+                        <a href="../vistas/SesionAbierta.php" class="nav_links">Inicio</a>
                     </li>
                     <li class="nav_items">
-                        <a href="../nexuslearn/foro.php" class="nav_links">Foro</a>
+                        <a href="../vistas/foro.php" class="nav_links">Foro</a>
                     </li>
                     <li class="nav_items">
-                        <a href="../nexuslearn/repositorio.php" class="nav_links">Repositorio</a>
+                        <a href="../vistas/repositorio.php" class="nav_links">Repositorio</a>
                     </li>
                     <li class="nav_items">
-                        <a href="../nexuslearn/reuniones.php" class="nav_links">Reuniones</a>
+                        <a href="../vistas/reuniones.php" class="nav_links">Reuniones</a>
                     </li>
                 </ul>
             </nav>
@@ -135,9 +140,9 @@ if (!isset($_SESSION['email'])) {
         <section class="footer_copy container">
             <div class="footer_social">
                 <a href="#" class="footer_icons">
-                    <img src="./images/face.svg" alt="Facebook" class="footer_img">
-                    <img src="./images/ig.svg" alt="Instagram" class="footer_img">
-                    <img src="./images/page.svg" alt="Pagina web UNAB" class="footer_img">
+                    <img src="../images/face.svg" alt="Facebook" class="footer_img">
+                    <img src="../images/ig.svg" alt="Instagram" class="footer_img">
+                    <img src="../images/page.svg" alt="Pagina web UNAB" class="footer_img">
                 </a>
             </div>
             <h3 class="footer_copyright">Derechos reservados &copy;</h3>
@@ -145,4 +150,5 @@ if (!isset($_SESSION['email'])) {
     </footer>
 
 </body>
+
 </html>

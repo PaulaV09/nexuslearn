@@ -23,13 +23,13 @@
             // Iniciar sesión y redirigir al usuario a la página de sesión abierta
             $_SESSION['email'] = $email;
             $_SESSION['id'] = $id_usuario;
-            header("Location: ../SesionAbierta.php");
+            header("Location: ../vistas/SesionAbierta.php");
             exit();
         } else {
             echo '
             <script>
                 alert("Usuario o contraseña incorrectos");
-                window.location = "../login.php";    
+                window.location = "../vistas/login.php";    
             </script>';
             exit();
         }
@@ -37,7 +37,7 @@
         echo '
         <script>
             alert("Por favor, complete todos los campos.");
-            window.location = "../login.php";
+            window.location = "../vistas/login.php";
         </script>';
         exit();
     }

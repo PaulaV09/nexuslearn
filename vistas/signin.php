@@ -1,27 +1,29 @@
 <?php
 
-    session_start();
+session_start();
 
-    if(isset($_SESSION['email'])){
-        header("location: SesionAbierta.php");
-    }
+if (isset($_SESSION['email'])) {
+    header("location: SesionAbierta.php");
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusLearn</title>
-    <link rel="shortcut icon" href="./images/Favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/styles-signin.css">
+    <link rel="shortcut icon" href="../images/Favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles-signin.css">
 </head>
+
 <body>
     <div class="container">
-        <form action="php/registro_usuario_be.php" method="post">
+        <form action="../php/registro_usuario_be.php" method="post">
             <h2>Registro</h2>
             <div class="content">
                 <div class="input-box">
@@ -48,10 +50,10 @@
                 <div class="gender-category">
                     <input type="radio" name="genero" id="hombre" value="Hombre" required>
                     <label for="hombre">Hombre</label>
-                    
+
                     <input type="radio" name="genero" id="mujer" value="Mujer">
                     <label for="mujer">Mujer</label>
-                    
+
                     <input type="radio" name="genero" id="otro" value="Otro">
                     <label for="otro">Otro</label>
                 </div>
@@ -62,4 +64,5 @@
         </form>
     </div>
 </body>
+
 </html>

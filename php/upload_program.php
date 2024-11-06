@@ -1,4 +1,5 @@
 <?php
+
 $archivos = $_FILES['files'];
 $subidos = [];
 
@@ -12,3 +13,5 @@ foreach ($archivos['tmp_name'] as $indice => $tmp_name) {
 }
 
 echo json_encode($subidos);
+
+?>

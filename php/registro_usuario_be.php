@@ -38,7 +38,7 @@
     if (mysqli_num_rows($result) > 0) {
         echo "<script>
                 alert('Este correo ya está registrado.');
-                window.location = '../login.php'; // Redirigir al login
+                window.location = '../vistas/login.php'; // Redirigir al login
             </script>";
         exit();
     }
@@ -53,14 +53,14 @@
         echo '
             <script>
                 alert("Usuario guardado exitosamente");
-                window.location = "../login.php";
+                window.location = "../vistas/login.php";
             </script>
         ';
     }else{
         echo '
             <script>
                 alert("No se registro correctamente. Intentalo de nuevo");
-                window.location = "../login.php";
+                window.location = "../vistas/login.php";
             </script>
         ';
     };

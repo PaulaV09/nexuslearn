@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_GET['archivo'])) {
     $nombreArchivo = $_GET['archivo'];
     
@@ -22,3 +23,5 @@ if (isset($_GET['archivo'])) {
 } else {
     echo "No se especificó ningún archivo.";
 }
+
+?>

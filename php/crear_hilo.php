@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 include "conexion_be.php";
@@ -12,11 +13,12 @@ if (isset($_SESSION['email'])) {
     $insertarHilo = "INSERT INTO hilo (titulo, contenido, f_creacion, correo_id) 
                      VALUES ('$titulo', '$contenido', NOW(), '$usuarioID')";
     if (mysqli_query($conexion, $insertarHilo)) {
-        header("Location: ../foro.php");
+        header("Location: ../vistas/foro.php");
     } else {
         echo "Error al publicar el hilo";
     }
 } else {
     echo "Debes iniciar sesión para publicar un hilo";
 }
+
 ?>
