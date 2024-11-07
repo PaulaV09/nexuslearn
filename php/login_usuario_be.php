@@ -1,28 +1,29 @@
 <?php
 
-    session_start();
+session_start();
+include 'conexion_be.php';
 
-    include 'conexion_be.php';
+// Verificar que el email y la contraseña estén definidos
+if (isset($_POST['email']) && isset($_POST['contrasena'])) {
+    $email = $_POST['email'];
+    $contrasena = $_POST['contrasena'];
 
-    // Verificar que el email y la contraseña estén definidos
-    if (isset($_POST['email']) && isset($_POST['contrasena'])) {
-        $email = $_POST['email'];
-        $contrasena = $_POST['contrasena'];
+    // Consulta para obtener el hash de la contraseña almacenada en la base de datos
+    $query = "SELECT id, contrasena FROM usuarios WHERE email = ?";
+    $stmt = $conexion->prepare($query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        // Encriptar la contraseña ingresada antes de compararla
-        $contrasena = hash('sha512', $contrasena);
+    if ($result->num_rows > 0) {
+        $usuario = $result->fetch_assoc();
+        $hashedPassword = $usuario['contrasena'];
 
-        // Consulta para verificar las credenciales
-        $validar_login = mysqli_query($conexion, "SELECT id FROM usuarios WHERE email='$email' AND contrasena='$contrasena'");
-
-        if (mysqli_num_rows($validar_login) > 0) {
-            // Obtener el id del usuario
-            $usuario = mysqli_fetch_assoc($validar_login);
-            $id_usuario = $usuario['id'];
-
+        // Verificar la contraseña ingresada usando password_verify()
+        if (password_verify($contrasena, $hashedPassword)) {
             // Iniciar sesión y redirigir al usuario a la página de sesión abierta
             $_SESSION['email'] = $email;
-            $_SESSION['id'] = $id_usuario;
+            $_SESSION['id'] = $usuario['id'];
             header("Location: ../vistas/SesionAbierta.php");
             exit();
         } else {
@@ -36,10 +37,22 @@
     } else {
         echo '
         <script>
-            alert("Por favor, complete todos los campos.");
-            window.location = "../vistas/login.php";
+            alert("Usuario o contraseña incorrectos");
+            window.location = "../vistas/login.php";    
         </script>';
         exit();
     }
+
+    $stmt->close();
+} else {
+    echo '
+    <script>
+        alert("Por favor, complete todos los campos.");
+        window.location = "../vistas/login.php";
+    </script>';
+    exit();
+}
+
+$conexion->close();
 
 ?>
